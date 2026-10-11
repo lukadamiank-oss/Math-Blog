@@ -27,6 +27,7 @@ h6 {
   font-family: -apple-system, Helvetica, arial, sans-serif;
 }
 h1 {
+  font-style: normal;
   line-height: 1.2em;
 }
 .clear {
@@ -96,6 +97,11 @@ h1 {
   margin-top: 50px;
   margin-bottom: 50px;
 }
+.article img,
+.article video {
+  max-width: 100%;
+  height: auto;
+}
 .article blockquote {
   margin: 0;
   padding: 0 1em;
@@ -117,7 +123,7 @@ h1 {
   padding-top: 15px;
   display: inline-block;
   font-size: 13px;
-  line-heigh: 1.2em;
+  line-height: 1.2em;
 }
 .article .figure .caption-label {
   font-weight: bold;
@@ -150,12 +156,12 @@ h1 {
   color: rgba(0, 0, 0, 0.5);
 }
 #blog {
-  margin-top: 80px;
+  margin-top: 40px;
   margin-bottom: 100px;
 }
 #blog #intro {
   font-size: 14px;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.4em;
   margin-bottom: 40px;
 }

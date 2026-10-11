@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>Arrow's Theorem of Impossibility: A Dialogical Analysis</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Luka Kirigin is a mathematics student'>
+    <meta name='keywords' content=''>
+    <meta name='author' content='Luka Kirigin'>
+
+    <link href="/css/blog.css?v=1791741532" rel='stylesheet'/>
+    <link href='/css/trac.css' rel='stylesheet'/>
+    <link href='/css/markdown.css' rel='stylesheet'/>
+
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    // Kramdown converts $$ blocks to \[ ... \] in the generated HTML.
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  }
+};
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+</head>
+<body>
+<div class='content'>
+    <div class='nav'>
+    <ul class='wrap'>
+        <li><a href='/'>Home</a></li>
+        <li><a href='/blog'>Blog</a></li>
+        <li><a href='/feed.xml'>RSS</a></li>
+    </ul>
+</div>
+    <div class='front-matter'>
+        <div class='wrap'>
+            <h1>Arrow's Theorem of Impossibility: A Dialogical Analysis</h1>
+            <h4>A fictional lecture between professor Jean Carlé and student Tay Staviski</h4>
+            <div class='bylines'>
+                <div class='byline'>
+                    <h3>Published</h3>
+                    <p>02 January 2026</p>
+                </div>
+            </div>
+            <div class='clear'></div>
+        </div>
+    </div>
+    <div class='wrap article'>
+        <p>Jean Carlé: Kenneth Arrow’s Theorem of Impossibility tells us that if we wish to rank a set of outcomes based on a population’s preferences, ranked preference voting will not allow us to determine an optimal solution. In this lecture, I will explain his proof for this theorem and how we may uncover the paradox it outlines. Then I will discuss its context, specifically the implications of how we uncover our paradox, and why it causes many people to cite its conclusion misguidedly. Where shall we start?</p>
+
+<p>Tay Staviski: We must start by establishing our assumptions. I would formalize our function, as well as the conditions Arrow requires for an ‘optimal’ ranking. Then we can create our optimization algorithm.</p>
+
+<p>Jean Carlé: We won’t be creating the social welfare function, just assuming one exists, though we do need to define its structure. Our inputs are ranked lists of potential outcomes. We take an arbitrary number of outcomes, defined by a group X, and an arbitrary number of voters, defined by a group N. Each member of group N submits an ordinal ranking of all elements in group X. Our social welfare function takes these rankings and outputs an optimal ranking of all outcomes. This ranking most accurately matches the aggregate preferences of group N. Arrow’s Theorem walks through a proof showing that an algorithm of this sort cannot violate the conditions he sets up. To understand how it works properly, we must have a complete understanding of these conditions. May you summarize them for us?</p>
+
+<p>Tay Staviski: The social welfare function must give an output for any set of preferences. Second, this output must reflect all unanimous preferences of our population. Third, the ranking of two variables cannot be influenced by the presence of a third variable. Finally, the decision cannot be determined by the preferences of a single voter.</p>
+
+<p>Jean Carlé: These conditions are respectively called: unrestricted domain, Pareto efficiency, the independence of irrelevant alternatives, and non-dictatorship. Besides these, we assume anonymity, meaning each input is considered equally. Going one by one, I will explain each condition.</p>
+
+<p>Non-dictatorship: This condition states that a sole ‘dictator’ cannot determine the output. A voter acts as a dictator if, for every pair of outcomes, the output reflects the voter’s ranking, no matter what other voters prefer. This condition is assumed with the anonymity of our voters, although Arrow explicitly states non-dictatorship as a factor in his original theorem.</p>
+
+<p>Unrestricted domain: Voters must be able to submit any permutation of outcomes. This ensures our social welfare function actually meets the requirements to be classified as a function. Every possible set of finite voter preferences will be mapped to an output.</p>
+
+<p>Pareto efficiency: Our function’s output must be Pareto efficient. This means that every possible change we could make to our final output will, even if it increases the well-being of one person, decrease the well-being of someone else. In other words, our final output cannot be altered to benefit everyone more. This also means that if our population unanimously prefers an outcome X over Y, that preference must be reflected in our output.</p>
+
+<p>Independence of irrelevant alternatives (IIA): The ranked order between two outcomes in our final output cannot be influenced by the addition or subtraction of another outcome. Theoretically, a third option should not influence a voter’s decision between two outcomes. This condition is necessary for our proof to work.</p>
+
+<p>These conditions are necessary for a fair, rational-choice voting system.</p>
+
+<p>Tay Staviski: If the benefit of some change outweighs the detriment, then should we not still enact the change? Why would we not use a system in which participants assign cardinal variables to each ranking? We could then measure the total well-being for each possible ranking of outcomes, and define an algorithm to determine the exact net effect of changes. The use of ordinal variables significantly reduces our analytical capabilities, as our algorithm cannot account for opinions held by the population, though not unanimously.</p>
+
+<p>Jean Carlé: Pareto efficiency isn’t how we determine our output; it is just a condition that it must fulfill. Our final result does not have to be unanimous, but it must reflect all unanimous preferences our population holds. As to your point of cardinal variables, you are correct that they would allow us to always find the exact result that perfectly optimizes social welfare. However, we run into two key issues. First, cardinal variables aren’t trustworthy for precise measurements of population opinions. If we are using a scale from 1-10, then an outcome that benefits two voters the same amount might be reported as an 8 for one voter and a 10 for another. This discrepancy would happen constantly and would be impossible to account for. Second, take two options: option X being very favorable and option Y being unfavorable. A voter might report 9 for X and 2 for Y, or some other set of similar numbers. Now, imagine a new scenario with the same voter, but options X, Y, and a new, extremely favorable option, Z. The presence of Z does not change the fact that X &gt; Y. This is why IIA holds with ordinal variables. However, if our voter wants to report a 9 for Z, they will most likely lower their number for X. This changes the relative ranking between X and Y. Because cardinal variables mean the introduction of a third outcome might change a voter’s evaluation of two original outcomes, we are forced to use ranked-choice voting. Let us now move on to Arrow’s proof itself.</p>
+
+<p>Arrow’s Impossibility Theorem:</p>
+
+<p>Imagine a scenario with a finite population of size N, and a finite set of outcomes. Among these are two arbitrary and distinct outcomes, X and Y. Assume that we have a unanimous ranking of these two; all participants rank X &gt; Y. We go one by one, and flip each voter’s ranking to Y &gt; X. When all voters rank Y &gt; X, society will as well. Therefore, at some point in this process, we will encounter a pivotal voter, such that flipping their vote will cause society to no longer rank X &gt; Y. We label this voter nxy. When nxy ranks Y &gt; X, we say society ranks Y ≥ X, not the stricter Y &gt; X. This is because it is possible for Y to be equal to X. Similarly, when changing society’s vote from Y &gt; X to X &gt; Y, we can find a voter nyx, who, when ranking X &gt; Y, dictates that society ranks X ≥ Y. With this in mind, we can imagine two possible ways a population N can vote. Label the first S1, and the second S2. We start with a unanimous ranking of X &gt; Y in both, then sequentially flip voters’ opinions to Y &gt; X. In the first group, S1, every voter up until nxy prefers Y &gt; X, while nxy and every subsequent voter prefers X &gt; Y. S2 is the same except for nxy, who prefers Y &gt; X. Therefore, societal ranking is X &gt; Y in S1, and Y ≥ X in S2.</p>
+
+<p>Now we introduce a third outcome, Z, which does not change the relative ranking of X and Y in any way. In S1, all voters place Z directly below Y. By universality, S1 ranks Y &gt; Z. Because X &gt; Y, the societal ranking of S1 is X &gt; Y &gt; Z. Therefore, through transitive property, S1 ranks X &gt; Z even though the vote is not unanimous. In both societies, nxy ranks Z last, below both X and Y. In S2, all voters maintain their relative ranking of X and Z, meaning we keep the societal ranking of X &gt; Z due to IIA. The only change between S1 and S2 among the pairs (X, Y) and (X, Z) is nxy’s pivotal flip. Instead of X &gt; Y &gt; Z (S1), we have Y ≥ X &gt; Z (S2). However, in S2, each voter’s ranking of Y and Z is undefined. This means that each voter could place Z above, equal to, or below Y. This is problematic because, based on our conclusion of Y ≥ X &gt; Z, Y should be above Z. Even though the individual relationship between the outcomes is undefined for each voter, meaning society could rank Z &gt; Y, S2 can never do so. Therefore, with our current setup, Y must be ranked above Z. The only thing that is actually known about the way society ranks the variables is that nxy ranks Y &gt; Z. Next, because IIA says society ranks a pair of outcomes based solely on the way voters rank that pair, we are forced to conclude that when nxy ranks Y &gt; Z, society must rank Y &gt; Z. This is extremely unintuitive, but by the conditions posited, is true.</p>
+
+<p>Let’s imagine all voters in S2 rank Y &gt; Z. We sequentially flip each voter’s ranking to Z &gt; Y in the same way we found nxy. Until we flip nxy, they rank Y &gt; Z, meaning society also ranks Y &gt; Z. Therefore, we must encounter the voter whose ranking of Z &gt; Y invalidates Y &gt; Z after we flip nxy, because while nxy still ranks Y &gt; Z, society can’t change. In other words, nyz ≥ nxy. Next, we repeat this process to find nzy. All voters in S2 rank Z &gt; Y, so society ranks Z &gt; Y. We know that once we flip nxy, society will no longer rank Z &gt; Y. Therefore, nzy must be before or equal to nxy, or nxy ≥ nzy. Putting our two inequalities together, we get: nyz ≥ nxy ≥ nzy. With this, we are almost complete. Remember that our variables are arbitrary and distinct outcomes. Because of this, when we determine a conclusion about them, we would be able to swap their initial positions and therefore know that what we concluded works with a different order of the variables. Think of this not as setting up a new system, but just changing the labels on the same outcomes. Repeating our recent conclusion with Y and Z swapped, we get nzy ≥ nxy ≥ nyz. Using these inequalities together:</p>
+
+<p>nyz ≥ nxy ≥ nzy and nyz ≤ nxy ≤ nzy</p>
+
+<p>We can conclude:</p>
+
+<p>nyz = nxy = nzy</p>
+
+<p>Tay Staviski: Fascinating. At this point, we have proven that a decisive voter for any two outcomes is also a decisive voter for either one of those outcomes and an arbitrary third variable. This clearly extends to a voting pool with any number of outcomes, as repeating this process is trivial. It really is interesting that the whole proof relies on the fact that S2 always conforms to nxy when they rank Y &gt; Z. Especially when that lemma seems to be based on logic, which requires a suspension of belief.</p>
+
+<p>Jean Carlé: This point demonstrates how core Arrow’s axioms are to the proof. They seem so reasonable when introduced that one would assume most voting systems fulfill them. In reality, they are seldom realized entirely. Because this proof’s logic stretches its conditions to their absolute limit, any margin for error on a factor such as IIA would invalidate the proof entirely. In modern politics, people use this proof as an argument against ranked-choice voting systems, when there is little to no chance that even small elections could be done while ensuring IIA completely. Arrow’s theory reminds us to heavily prepare before attempting to prove something. It is a foundational piece of math, and its limited real-world application should not diminish its respect. It is a proof which has been re-written, taken out of context, and misused possibly more than any other in history, and will continue to be used in this way. Understanding its true mechanisms gives a slight shock, and at the very least, allows one to skepticize people quoting it in ways you now know to be invalid. Thank you for listening.</p>
+
+    </div>
+    <div id='bibliography'>
+        <div class='wrap'>
+            <ol class="bibliography"></ol>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+name: Build and deploy Jekyll to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Let an in-progress deployment finish before starting the next one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v6
+
+      - name: Set up Ruby and install locked dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          # Reads .ruby-version and the Bundler version from Gemfile.lock.
+          bundler-cache: true
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build with custom Jekyll plugins
+        env:
+          JEKYLL_ENV: production
+        # Keep the empty baseurl from _config.yml for lukakirigin.com.
+        run: bundle exec jekyll build --destination _site --trace
+
+      - name: Check the deployment output
+        run: |
+          test -s _site/index.html
+          test -s _site/css/blog.css
+          test -s _site/feed.xml
+          test -s _site/sitemap.xml
+          test "$(cat _site/CNAME)" = "lukakirigin.com"
+
+      - name: Upload the generated site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

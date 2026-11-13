@@ -217,3 +217,35 @@ hr {
     margin: 0 7px;
   }
 }
+
+/* Homepage */
+#home #intro h1 {
+    margin-bottom: 10px;
+}
+
+#home #intro .quote {
+    margin-top: 0;
+}
+
+#home #links {
+    margin-top: 35px;
+    font-size: 16px;
+}
+
+#home #links a {
+    margin-right: 25px;
+}
+
+#home #writing {
+    margin-top: 25px;
+}
+
+#home #links a,
+#home #writing a {
+    text-decoration: none;
+}
+
+#home #links a:hover,
+#home #writing a:hover {
+    text-decoration: underline;
+}

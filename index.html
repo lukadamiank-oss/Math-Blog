@@ -1,5 +1,5 @@
 ---
-title: blog
+title: home
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +11,6 @@ title: blog
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
 
     <meta name='description' content='Luka Kirigin is a Mathematics student at Northeastern'>
-    <!-- A decent browser will parse this fine:
-         https://webmasters.stackexchange.com/questions/92744. -->
     <meta name='keywords' content=
         'machine learning,
         linear algebra,
@@ -22,36 +20,32 @@ title: blog
 
     <link href="{{ '/css/blog.css' | relative_url }}?v={{ site.time | date: '%s' }}" rel='stylesheet'/>
 
-    {% include mathjax.html %}
+
 </head>
 <body>
     {% include nav.html %}
-    <div id='blog' class='wrap'>
+    <div id='home' class='wrap'>
         <div id='intro'>
-            <h1>Luka Kirigin's Mathematics Blog</h1>
+            <h1>Luka Kirigin</h1>
             <div class='quote'>
-                
+                "I am introducing myself once more." - Franz Kafka
             </div>
         </div>
-        <div id='posts' class='section'>
-            {% for post in site.posts %}
-                <div class='post-row'>
-                    <p class="post-title">
-                        <a href="{{ post.url | relative_url }}">
-                            {{ post.title }}
+        <div id='links' class='section'>
+        <h4>
+            <a href="https://www.linkedin.com/in/luka-kirigin/">LinkedIn</a>
+            &nbsp;&nbsp;
+            <a href="https://github.com/lukadamiank-oss">GitHub</a>
+        </h4>
+    <div id='writing' class='section'>
+    <p>
+        <a href="{{ '/blog/' | relative_url }}">
+            Continue to Blog →
+        </a>
+    </p>
+</div>
 
-                        </a>
-                    </p>
-                    <p class='post-date'>
-                        {{ post.date | date_to_long_string }}
-                    </p>
-                </div>
-                <p class="post-subtitle">
-                {{ post.subtitle }}
-                </p>
-                <span class='hidden'>{{ forloop.index }}</span>
-            {% endfor %}
-        </div>
-    </div>
+    
+
 </body>
 </html>

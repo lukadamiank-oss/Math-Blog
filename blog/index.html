@@ -1,0 +1,53 @@
+---
+title: blog
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Luka Kirigin</title>
+    <meta charset='UTF-8'>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <meta name='description' content='Luka Kirigin is a Mathematics student at Northeastern'>
+    <meta name='keywords' content=
+        'machine learning,
+        linear algebra,
+        computer science'>
+    <meta name='author' content='Luka Kirigin'>
+
+
+    <link href="{{ '/css/blog.css' | relative_url }}?v={{ site.time | date: '%s' }}" rel='stylesheet'/>
+
+    {% include mathjax.html %}
+</head>
+<body>
+    {% include nav.html %}
+    <div id='blog' class='wrap'>
+        <div id='intro'>
+            <h1>Luka Kirigin's Mathematics Blog</h1>
+            <div class='quote'>
+                
+            </div>
+        </div>
+        <div id='posts' class='section'>
+            {% for post in site.posts %}
+                <div class='post-row'>
+                    <p class="post-title">
+                        <a href="{{ post.url | relative_url }}">
+                            {{ post.title }}
+
+                        </a>
+                    </p>
+                    <p class='post-date'>
+                        {{ post.date | date_to_long_string }}
+                    </p>
+                </div>
+                <p class="post-subtitle">
+                {{ post.subtitle }}
+                </p>
+                <span class='hidden'>{{ forloop.index }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
